@@ -218,7 +218,7 @@ the formal proof must show that they do.
 
 The primorial Pidx barrier is:
 
-$$ p_r＃ \le n(n+1)<p_{r+1}＃ \quad\Longrightarrow\quad \omega(n(n+1))\le r. $$
+$$ P_r \le n(n+1)<P_{r+1} \quad\Longrightarrow\quad \omega(n(n+1))\le r. $$
 
 Therefore a prime-complete value in that interval must have
 
