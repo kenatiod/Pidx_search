@@ -244,7 +244,76 @@ up to $4 \times 10^{28}$. The last locations of $n$ for small $Pidx(N_2) - \omeg
 | 5 |11,259,346,386,959|
 | 6 |119,089,041,053,696|
 
+Observed maxOmega to minPidx growth over doubling intervals:
+| $log_2$ Start | maxOmega | minPidx |
+| ------------- | -------- | ------- |
+| 1 | 2 | 2 |
+| 2 | 3 | 2 |
+| 3 | 4 | 2 |
+| 4 | 4 | 3 |
+| 5 | 4 | 4 |
+| 6 | 5 | 3 |
+| 7 | 6 | 4 |
+| 8 | 6 | 5 |
+| 9 | 7 | 5 |
+| 10 | 7 | 6 |
+| 11 | 7 | 4 |
+| 12 | 8 | 4 |
+| 13 | 8 | 5 |
+| 14 | 8 | 7 |
+| 15 | 9 | 7 |
+| 16 | 9 | 6 |
+| 17 | 10 | 7 |
+| 18 | 10 | 7 |
+| 19 | 11 | 8 |
+| 20 | 11 | 9 |
+| 21 | 11 | 9 |
+| 22 | 11 | 8 |
+| 23 | 12 | 8 |
+| 24 | 12 | 10 |
+| 25 | 13 | 12 |
+| 26 | 13 | 10 |
+| 27 | 13 | 10 |
+| 28 | 13 | 11 |
+| 29 | 14 | 13 |
+| 30 | 14 | 11 |
+| 31 | 14 | 12 |
+| 32 | 15 | 16 |
+| 33 | 15 | 14 |
+| 34 | 15 | 14 |
+| 35 | 16 | 13 |
+| 36 | 16 | 16 |
+| 37 | 16 | 15 |
+| 38 | 16 | 14 |
+| 39 | 17 | 16 |
+| 40 | 17 | 15 |
+| 41 | 18 | 18 |
+| 42 | 18 | 18 |
+| 43 | 18 | 17 |
+| 44 | 18 | 17 |
+| 45 | 19 | 20 |
+| 46 | 19 | 20 |
 
+If we let $x = \log_2(n)$, then theory-guided fit gives maxOmega growing roughly like $\frac{x}{\log(x)}$, while minPidx is better fit
+by a function with an $\frac{x^2}{\log(x)}$ component. In the observed data the fitted curves cross near
+$x=44$ ($n = 2^{44}$ or about 18 trillion), matching the point where minPidx begins to exceed maxOmega. Here here are the growth curve fit
+equations:
+
+$$
+maxOmega(x)  
+\approx  
+-0.30+1.45\frac{x}{\ln(x+1)}+0.50\ln(x+1),  
+$$
+
+$$
+minPidx(x)  
+\approx  
+0.66+0.83\frac{x}{\ln(x+1)}+0.0159\frac{x^2}{\ln(x+1)}.  
+$$
+
+Replacing $x$ by $\log_2(n)$, the observed maximum omega grows like a logarithmic-over-logarithmic
+function of $n$, while the observed minimum Pidx has a quadratic-logarithmic term. This is the
+numerical signature of the expected separation between available prime-factor count and greatest-prime-factor index.
 
 ## References
 
