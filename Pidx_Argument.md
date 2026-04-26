@@ -114,11 +114,7 @@ The primorial barrier gives the structural ceiling: $ω(N_2)≤r$ when $N_2<p_{r
 Using the prime number theorem in the equivalent Chebyshev-function form, $log⁡(p_r＃)=ϑ(p_r)∼p_r,$
 and $p_r∼rlog⁡(r).$ Thus, on the scale where $n(n+1)≍p_r＃,$ we have approximately $2log⁡(n)≍log⁡(p_r＃)∼p_r∼rlog⁡(r).$
 
-Thus, on the scale where
-
-$$ N_2\asymp p_r＃$$
-
-we have approximately
+Thus, on the scale where $ N_2\asymp p_r＃$ we have approximately
 
 $$ 2\log(n) \asymp \log(p_r＃)\sim p_r\sim r\log(r). $$
 
@@ -128,8 +124,10 @@ $$r≍2log(⁡n)log(⁡log⁡(n)).$$
 
 This is the largest possible scale for $ω(N_2)$ in that primorial interval.
 
-By contrast, the heuristic least attainable greatest prime factor in a large interval is governed by smooth-number rarity. 
-A value m near size $x$ is $y-smooth$ with probability heuristically controlled by the Dickman-de Bruijn function $ρ(u),u=log(⁡x)log⁡(y).
+By contrast, the heuristic least attainable greatest prime factor in a large 
+interval is governed by smooth-number rarity. 
+A value m near size $x$ is $y-smooth$ with probability heuristically controlled 
+by the Dickman-de Bruijn function $ρ(u) \text{, with }u=\log(⁡x)\log⁡(y)$.
 
 The smaller $y$ is relative to $x$, the rarer such values become. For products $n(n+1)$ near size $n^2,$ 
 the computation suggests that the least observed greatest-prime-factor index in primorial-scale intervals 
@@ -231,19 +229,20 @@ That expected separation is the heuristic reason A141399 should terminate.
 The formal proof must then rule out exceptional later values.
 
 ## 9. Computational Corroboration 
-Substantial computational corroboration has gone into this argument. (See data at 
+Substantial computational corroboration has gone into this argument. (See [data here](https://github.com/kenatiod/Delta_min))
 The smallest differences (minDelta) between
-values of $Pidx(N_2)$ and $\omega(N_2)$ have been examined for values of $n$ up to $2 \times 10^14$ thus $N_2$ 
-up to $4 \times 10^28$. The last locations of $n$ for small $Pidx(N_2) - \omega(N_2)$ are:
+values of $Pidx(N_2)$ and $\omega(N_2)$ have been examined for values of $n$ up to $2 \times 10^{14}$ thus $N_2$ 
+up to $4 \times 10^{28}$. The last locations of $n$ for small $Pidx(N_2) - \omega(N_2)$ are:
 
 | Pidx - $\omega$ | Last Found at $n$ |
 | --------------- | ------------------------: |
 | 0 | 633,555 |
 | 1 | 80,061,344 |
 | 2 | 1,109,496,723,125 |
-| 3 |   |
-| 4 |   |
-| 5 |    |
+| 3 |1,284,729,638,049 |
+| 4 |20,628,591,204,480|
+| 5 |11,259,346,386,959|
+| 6 |119,089,041,053,696|
 
 
 
