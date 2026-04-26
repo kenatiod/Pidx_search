@@ -14,18 +14,19 @@ $$n = 1, 2, 3, 5, 8, 9, 14, 15, 20, 24, 35, 80, 125, 224, 384, 440, 539, 714, 17
 
 Thus $N_2$ ranges from $1 \times 2 = 2 \text{ to } 633{,}555 \times 633{,}556 = 401{,}392{,}571{,}580$ with
 each value of $N_2$ having a complete set of prime divisors from 2 to its greatest prime divisor. The last
-value of $N_2$ has the divisor set \{ $2, 3, 5, 7, 11, 13, 17, 19$ \} giving it a divisor count $\omega(N_2(n))$
+value of $N_2$ has the divisor set \{ $2, 3, 5, 7, 11, 13, 17, 19$ \} 
+giving it a distinct-prime-divisor count $\omega(N_2(n))$
 of 8, which matches the prime number index $\pi(gpf(N_2(n)))$ of its greatest prime divisor, 19.
 In the text below, we will use $Pidx(N_2(n))$ to refer to the prime number index $\pi(gpf(N_2(n)))$.
 For any integer greater than 1, $\omega \le Pidx$, and are equal for prime-complete numbers.
 
 The products of consecutive integers have been extensively studied in the field of Number Theory [3]. As these
-products increase, two properties become prominate: increasing number of prime divisors and increasing prime
+products increase, two properties become prominent: increasing number of prime divisors and increasing prime
 number index of the greatest prime factor of the pair $(n, n+1)$, our $Pidx(N_2(n))$. The $\omega(N_2)$ value is
 limited on the high side by the $N_2$ position in the progression of primorial numbers, and $Pidx(N_2)$ is
 limited on the low side by what mathematicians call the "smoothness" of the integer pairs.
 
-At the OEIS A141399 post, Giovanni Resta states, "a(29) > 2.29*10^25, if it exists." This break in finding
+At the OEIS A141399 post, Giovanni Resta states, "a(29) > 2.29*10^25, if it exists." If true, this break in finding
 successive terms is very large, and puts consecutive integer pairs well past the point where any heuristic
 argument from probability of smoothness would expect to find pairs where Pidx would be low enough to match
 $\omega$. However, the central point is not that the functions $ω(N_2(n))$ and $Pidx(N_2(n))$ are monotone. 
@@ -63,17 +64,17 @@ Since $n$ and $n+1$ are coprime, $ω(n(n+1))=ω(n)+ω(n+1)$, and $Pidx(n(n+1))=m
 
 ## 3. The primorial interval barrier
 
-Let $p_r＃=2⋅3⋅5⋯p_r$ be the $r$-th primorial. The basic deterministic observation is:
+Let $P_r=2⋅3⋅5⋯p_r$ be the $r$-th primorial number. The basic deterministic observation is:
 
-**Lemma.** If $m<p_{r+1}$＃, then $ω(m)≤r.$
+**Lemma.** If $m<P_{r+1}$, then $ω(m)≤r.$
 
 **Proof.** If $ω(m)≥r+1$, then $m$ has at least $r+1$ distinct prime factors. 
-The least possible product of $r+1$ distinct primes is $2⋅3⋅5⋯p_{r+1}=p_{r+1}＃.$
+The least possible product of $r+1$ distinct primes is $2⋅3⋅5⋯p_{r+1}=P_{r+1}.$
 
-Therefore $m≥p_{r+1}＃$, is a contradiction. ◻
+Therefore $m≥P_{r+1}$, is a contradiction. ◻
 
 Now choose intervals of $n$ such that $n(n+1)$ lies between successive primorial thresholds. 
-Informally, the $r-th$ interval is the range of $n$ for which $p_r＃≤n(n+1)<p_{r+1}＃.$ 
+Informally, the $r-th$ interval is the range of $n$ for which $P_r≤n(n+1)<P_{r+1}.$ 
 On such an interval, the lemma gives the rigorous upper bound $ω(N_2(n))≤r.$ 
 Therefore, in that interval, a prime-complete value must satisfy
 
@@ -110,28 +111,45 @@ over the first $r$ primes and would be detected by such a search.
 
 ## 5. Why $Pidx$ is expected to outrun $r$
 
-The primorial barrier gives the structural ceiling: $ω(N_2)≤r$ when $N_2<p_{r+1}＃.$ 
-Using the prime number theorem in the equivalent Chebyshev-function form, $log⁡(p_r＃)=ϑ(p_r)∼p_r,$
-and $p_r∼rlog⁡(r).$ Thus, on the scale where $n(n+1)≍p_r＃,$ we have approximately $2log⁡(n)≍log⁡(p_r＃)∼p_r∼rlog⁡(r).$
+The primorial barrier gives the structural ceiling: $ω(N_2)≤r$ when $N_2<P_{r+1}.$ 
 
-Thus, on the scale where $ N_2\asymp p_r＃$ we have approximately
+Using the prime number theorem in the Chebyshev-function form,
 
-$$ 2\log(n) \asymp \log(p_r＃)\sim p_r\sim r\log(r). $$
+$$
+\log(P_r)=\vartheta(p_r)\sim p_r,
+$$
 
-Consequently, 
+and the usual estimate
 
-$$r≍2log(⁡n)log(⁡log⁡(n)).$$ 
+$$
+p_r\sim r\log r,
+$$
+
+we obtain, on the scale $n(n+1)\asymp P_r$,
+
+$$
+2\log n \asymp \log(P_r)\sim p_r\sim r\log r.
+$$
+
+Thus
+
+$$
+r\asymp \frac{2\log n}{\log\log n}.
+$$
 
 This is the largest possible scale for $ω(N_2)$ in that primorial interval.
 
 By contrast, the heuristic least attainable greatest prime factor in a large 
 interval is governed by smooth-number rarity. 
 A value m near size $x$ is $y-smooth$ with probability heuristically controlled 
-by the Dickman-de Bruijn function $ρ(u) \text{, with }u=\log(⁡x)\log⁡(y)$.
+by the Dickman-de Bruijn function $\rho(u) \text{, with }u=\frac{\log(⁡x)}{\log⁡(y)}$.
 
 The smaller $y$ is relative to $x$, the rarer such values become. For products $n(n+1)$ near size $n^2,$ 
-the computation suggests that the least observed greatest-prime-factor index in primorial-scale intervals 
-behaves roughly on a scale like $π((log(⁡n))^2)∼(log(⁡n))2^2log(⁡log⁡(n)).$
+the computation suggests that the minPidx in primorial-scale intervals behaves roughly on a scale like
+
+$$ 
+\pi((\log(n))^2) \sim \frac{(\log(n))^2}{2\log(\log(n))}.
+$$
 
 This is much larger than the primorial barrier scale $r≍2log⁡(n)log⁡(log(⁡n)).$ Their ratio is heuristically 
 
@@ -173,14 +191,11 @@ evidence for finiteness, not as the formal proof of finiteness.
 
 A formal proof must supply one of the following:
 
-- a rigorous lower bound proving that
+- a rigorous lower bound proving that $\min_{n\in I_r}Pidx(N_2(n))>r$ for all sufficiently large $r$; or
 
-$$ \min_{n\in I_r} Pidx(N_2)>r \text{  for all sufficiently large } r \text{; or} $$
-
-- an independent structural argument eliminating all large-ω cases, such as a Størmer/Lehmer/Pell 
-   finite reduction or
-
-- fixed ω together with a CRT/LCM obstruction closing the tail.
+- an independent structural argument eliminating all $\text{large-}\omega$ cases, such
+  as a Størmer/Lehmer/Pell finite reduction for fixed $\omega$,
+  together with a CRT/LCM obstruction closing the tail.
 
 ## 7. Relation to Størmer’s theorem
 
