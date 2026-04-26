@@ -7,16 +7,16 @@ OEIS sequence [A141399]( https://oeis.org/A141399), the prime-complete products 
 
 $$ N_2(n)=n(n+1), $$
 
-to be finite, with termination at $n = 633,555.$ The sequence comprises:
+to be finite, with termination at $n = 633{,}555.$ The sequence comprises:
 
 $$n = 1, 2, 3, 5, 8, 9, 14, 15, 20, 24, 35, 80, 125, 224, 384, 440, 539, 714, 1715, 
 2079, 2400, 3024, 4374, 9800, 12375, 123200, 194480, 633555 $$
 
 Thus $N_2$ ranges from $1 \times 2 = 2 \text{ to } 633{,}555 \times 633{,}556 = 401{,}392{,}571{,}580$ with
 each value of $N_2$ having a complete set of prime divisors from 2 to its greatest prime divisor. The last
-value of $N_2$ has the divisor set \{ $2, 3, 5, 7, 11, 13, 17, 19$ \} giving it a divisor count $(\omega(N_2(n)))$
-of 8, which matches the prime number index $(\pi(gpf(N_2(n))))$ of its greatest prime divisor, 19.
-In the text below, we will use $Pidx(N_2(n))$ to refer to the prime number index $(\pi(gpf(N_2(n))))$.
+value of $N_2$ has the divisor set \{ $2, 3, 5, 7, 11, 13, 17, 19$ \} giving it a divisor count $\omega(N_2(n))$
+of 8, which matches the prime number index $\pi(gpf(N_2(n)))$ of its greatest prime divisor, 19.
+In the text below, we will use $Pidx(N_2(n))$ to refer to the prime number index $\pi(gpf(N_2(n)))$.
 For any integer greater than 1, $\omega \le Pidx$, and are equal for prime-complete numbers.
 
 The products of consecutive integers have been extensively studied in the field of Number Theory [3]. As these
@@ -75,11 +75,16 @@ Therefore $m≥p_{r+1}＃$, is a contradiction. ◻
 Now choose intervals of $n$ such that $n(n+1)$ lies between successive primorial thresholds. 
 Informally, the $r-th$ interval is the range of $n$ for which $p_r＃≤n(n+1)<p_{r+1}＃.$ 
 On such an interval, the lemma gives the rigorous upper bound $ω(N_2(n))≤r.$ 
-Therefore, in that interval, a prime-complete value must satisfy 
+Therefore, in that interval, a prime-complete value must satisfy
+
 $$Pidx(N_2(n))=ω(N_2(n))≤r.$$ 
+
 This gives the key exclusion test:
 
-$$ minPidx(N_2(n))>r ⟹ \text{no prime-complete } n(n+1) \text{ values occur in } I_r. $$
+$$
+\boxed{\min_{n\in I_r}Pidx(N_2)>r\quad\Longrightarrow\quad
+\text{no prime-complete } n(n+1) \text{ values occur in } I_r.}
+$$
 
 The important feature of this test is that it does not require an exact computation of 
 the interval maximum of $ω(N_2(n)).$ The value $r$ is already a rigorous upper 
@@ -105,25 +110,46 @@ over the first $r$ primes and would be detected by such a search.
 
 ## 5. Why $Pidx$ is expected to outrun $r$
 
-The primorial barrier gives the structural ceiling: $ω(n(n+1))≤r$ when $n(n+1)<p_{r+1}＃.$ 
+The primorial barrier gives the structural ceiling: $ω(N_2)≤r$ when $N_2<p_{r+1}＃.$ 
 Using the prime number theorem in the equivalent Chebyshev-function form, $log⁡(p_r＃)=ϑ(p_r)∼p_r,$
-and $p_r∼rlog⁡(r).$ Thus, on the scale where $n(n+1)≍p_r＃,$ we have approximately $2log⁡(n)≍log⁡(p_r＃)∼p_r∼rlog⁡(r).$ 
-Consequently, $r≍2log(⁡n)log(⁡log⁡(n)).$ This is the largest possible scale for $ω(n(n+1))$ in that primorial interval.
+and $p_r∼rlog⁡(r).$ Thus, on the scale where $n(n+1)≍p_r＃,$ we have approximately $2log⁡(n)≍log⁡(p_r＃)∼p_r∼rlog⁡(r).$
+
+Thus, on the scale where
+
+$$ N_2\asymp p_r＃$$
+
+we have approximately
+
+$$ 2\log(n) \asymp \log(p_r＃)\sim p_r\sim r\log(r). $$
+
+Consequently, 
+
+$$r≍2log(⁡n)log(⁡log⁡(n)).$$ 
+
+This is the largest possible scale for $ω(N_2)$ in that primorial interval.
 
 By contrast, the heuristic least attainable greatest prime factor in a large interval is governed by smooth-number rarity. 
 A value m near size $x$ is $y-smooth$ with probability heuristically controlled by the Dickman-de Bruijn function $ρ(u),u=log(⁡x)log⁡(y).
 
-The smaller $y$ is relative to $x,$ the rarer such values become. For products $n(n+1)$ near size $n^2,$ 
+The smaller $y$ is relative to $x$, the rarer such values become. For products $n(n+1)$ near size $n^2,$ 
 the computation suggests that the least observed greatest-prime-factor index in primorial-scale intervals 
 behaves roughly on a scale like $π((log(⁡n))^2)∼(log(⁡n))2^2log(⁡log⁡(n)).$
 
 This is much larger than the primorial barrier scale $r≍2log⁡(n)log⁡(log(⁡n)).$ Their ratio is heuristically 
 
-$$(log⁡n)2/(2log⁡log⁡n)2log⁡n/log⁡log⁡n∼log⁡n4,$$
+$$
+\frac{
+(\log(n))^2/(2\log(\log(n)))
+}{
+2\log(n)/\log(\log(n))
+}
+\sim
+\frac{\log(n)}{4},
+$$
 
 which tends to infinity. Thus the expected behavior is eventual permanent separation: 
 
-$$ minn∈I_rPidx(n(n+1))>r.$$
+$$ \min_{n\in I_r}Pidx(N_2)>r.$$
 
 Once that inequality holds for all later primorial intervals, prime-complete products $n(n+1)$ can no longer occur.
 
@@ -132,14 +158,14 @@ Once that inequality holds for all later primorial intervals, prime-complete pro
 
 The primorial barrier
 
-$$ \omega(n(n+1))\le r $$
+$$ \omega(N_2)\le r $$
 
 inside the interval is rigorous.
 
 The computational exclusion of a specific interval is also rigorous if the program has actually 
 verified that no $n$ in the interval satisfies
 
-$$ Pidx(n(n+1))\le r. $$
+$$ Pidx(N_2)\le r. $$
 
 However, the assertion that this exclusion persists for all sufficiently large $r$ is not 
 proved merely by the smooth-number heuristic. Dickman-type estimates describe the 
@@ -151,9 +177,7 @@ A formal proof must supply one of the following:
 
 - a rigorous lower bound proving that
 
-   $$ \min_{n\in I_r} Pidx(n(n+1))>r $$
-
-   for all sufficiently large $r$; or
+$$ \min_{n\in I_r} Pidx(N_2)>r \text{  for all sufficiently large } r \text{; or} $$
 
 - an independent structural argument eliminating all large-ω cases, such as a Størmer/Lehmer/Pell 
    finite reduction or
@@ -165,7 +189,7 @@ A formal proof must supply one of the following:
 For a fixed finite set of primes $P$, Størmer’s theorem implies that there are only 
 finitely many pairs of consecutive P-smooth integers. Since a prime-complete value with
 
-$$ \omega(n(n+1))=r $$
+$$ \omega(N_2)=r $$
 
 requires both $n$ and $n+1$ to be smooth over
 
@@ -207,11 +231,23 @@ That expected separation is the heuristic reason A141399 should terminate.
 The formal proof must then rule out exceptional later values.
 
 ## 9. Computational Corroboration 
+Substantial computational corroboration has gone into this argument. (See data at 
+The smallest differences (minDelta) between
+values of $Pidx(N_2)$ and $\omega(N_2)$ have been examined for values of $n$ up to $2 \times 10^14$ thus $N_2$ 
+up to $4 \times 10^28$. The last locations of $n$ for small $Pidx(N_2) - \omega(N_2)$ are:
+
+| Pidx - $\omega$ | Last Found at $n$ |
+| --------------- | ------------------------: |
+| 0 | 633,555 |
+| 1 | 80,061,344 |
+| 2 | 1,109,496,723,125 |
+| 3 |   |
+| 4 |   |
+| 5 |    |
 
 
 
-
-References
+## References
 
 1. K. Dickman, “On the frequency of numbers containing prime factors of a certain relative magnitude”,
     *Arkiv för Matematik, Astronomi och Fysik*, 22A(10), 1930.
